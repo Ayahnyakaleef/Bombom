@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Little Miracle | Cartoon Aesthetic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9f4e8; /* Warna kertas lama */
+            --accent-color: #8da399; /* Sage green lembut */
+            --text-color: #5b5b5b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text-color);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Layar Awal */
+        #welcome-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-color);
+            z-index: 9999; display: flex;
+            flex-direction: column; justify-content: center; align-items: center;
+            transition: opacity 2s ease;
+        }
+
+        #welcome-screen h2 {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            animation: floating 3s infinite ease-in-out;
+        }
+
+        #start-btn {
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            border: 2px solid var(--accent-color);
+            background: transparent;
+            color: var(--accent-color);
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            transition: all 0.3s;
+        }
+
+        #start-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Slideshow */
+        .main-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://www.transparenttextures.com/patterns/paper.png'); /* Tekstur kertas */
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 3s ease-in-out; /* Transisi sangat lembut */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .slide.active { opacity: 1; }
+
+        /* Frame Foto Kartun */
+        .photo-frame {
+            position: relative;
+            background: white;
+            padding: 15px 15px 60px 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid #eee;
+            border-radius: 2px;
+            max-width: 90%;
+            max-height: 75vh;
+            transform: rotate(-1deg);
+        }
+
+        .slide img {
+            max-width: 100%;
+            max-height: 60vh;
+            display: block;
+            border-radius: 2px;
+            /* Animasi Zoom Pelan (Ken Burns) */
+            transform: scale(1);
+            transition: transform 10s linear;
+        }
+
+        .slide.active img {
+            transform: scale(1.08);
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.5rem;
+            color: #888;
+        }
+
+        /* Dekorasi Awan */
+        .cloud {
+            position: absolute;
+            opacity: 0.4;
+            z-index: -1;
+            animation: cloudMove 20s infinite linear;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes cloudMove {
+            from { left: -100px; }
+            to { left: 100%; }
+        }
+
+        #yt-player { position: absolute; top: -100px; left: -100px; opacity: 0; }
+    </style>
+</head>
+<body>
+
+    <div id="welcome-screen">
+        <h2>Dunia Kecil Kita</h2>
+        <button id="start-btn">Buka Kenangan</button>
+    </div>
+
+    <div id="yt-player"></div>
+
+    <div class="main-container" id="content">
+        <img src="https://www.freeiconspng.com/uploads/cloud-icon-png-25.png" class="cloud" style="top: 10%; width: 100px;">
+        <img src="https://www.freeiconspng.com/uploads/cloud-icon-png-25.png" class="cloud" style="top: 30%; animation-delay: -5s; width: 150px;">
+
+        <div class="slide active">
+            <div class="photo-frame">
+                <img src="https://i.postimg.cc/FzyH1LMv/85e6a1f8-e3a5-4d65-8a0f-3b427363ed76-20260511-214641-0000.jpg">
+                <div class="caption">Wonderful World..</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="photo-frame" style="transform: rotate(2deg);">
+                <img src="https://i.postimg.cc/k52MKZ0c/IMG-20260511-WA0018.jpg">
+                <div class="caption">Anugerah terindah</div>
+            </div>
+        </div>
+
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/qvRpHSv0/IMG-20260511-WA0014.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/d3wKHSxp/IMG-20260511-WA0017.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/t4YGM6B6/IMG-20260511-WA0015.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/ZnVXfY3w/IMG-20260511-WA0016.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/bJR5JY6y/IMG-20260511-WA0013.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/25R97LJs/IMG-20260511-WA0010.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/DwsB0yZt/IMG-20260511-WA0011.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/Nf2xCf1t/IMG-20260511-WA0009.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/br71fkQY/IMG-20260511-WA0008.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/R0SKmMnP/IMG-20260511-WA0007.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/Kz4TKJfh/IMG-20260511-WA0005.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/jSXM0qSM/IMG-20260511-WA0003(1).jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/ydShd77K/IMG-20260511-WA0000.jpg"></div></div>
+        <div class="slide"><div class="photo-frame"><img src="https://i.postimg.cc/BnQxFTq3/IMG-20260511-WA0002.jpg"></div></div>
+    </div>
+
+    <script>
+        // Load YouTube API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('yt-player', {
+                height: '0', width: '0',
+                videoId: 'CWzrABouyeE', // What a wonderful world piano
+                events: { 'onReady': onPlayerReady }
+            });
+        }
+
+        function onPlayerReady(event) {
+            document.getElementById('start-btn').addEventListener('click', function() {
+                // Fade out welcome screen
+                document.getElementById('welcome-screen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('welcome-screen').style.display = 'none';
+                    document.getElementById('content').style.display = 'flex';
+                }, 2000);
+
+                player.playVideo();
+                startSlideshow();
+            });
+        }
+
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function startSlideshow() {
+            // Interval 10 detik (10000 ms)
+            setInterval(() => {
+                slides[current].classList.remove('active');
+                current = (current + 1) % slides.length;
+                slides[current].classList.add('active');
+            }, 10000); 
+        }
+    </script>
+</body>
+</html>
